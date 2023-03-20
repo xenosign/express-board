@@ -7,7 +7,6 @@ const userDB = {
       `SELECT * FROM mydb1.user WHERE USERID = '${userId}';`,
       (err, data) => {
         if (err) throw err;
-        console.log(data);
         cb(data);
       },
     );

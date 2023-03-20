@@ -5,14 +5,13 @@ const boardDB = {
   getAllArticles: async (cb) => {
     connection.query('SELECT * from mydb1.board', (err, data) => {
       if (err) throw err;
-      console.log(data);
       cb(data);
     });
   },
   // 게시글 추가하기
   writeArticle: (newArticle, cb) => {
     connection.query(
-      `INSERT INTO mydb1.board (TITLE, CONTENT) values ('${newArticle.title}', '${newArticle.content}');`,
+      `INSERT INTO mydb1.board (USERID, TITLE, CONTENT) values ('${newArticle.userId}', '${newArticle.title}', '${newArticle.content}');`,
       (err, data) => {
         if (err) throw err;
         cb(data);
